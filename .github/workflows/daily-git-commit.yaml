@@ -2,8 +2,9 @@ name: 🃏 Autocommit workflow
 
 on:
   schedule:
-    # Runs every day at 18:00 UTC
-    - cron: '0 18 * * *'
+    # Runs every day at 16:25 UTC
+    - cron: '26 16 * * *'
+
 
 jobs:
   update-readme:
