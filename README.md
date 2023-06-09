@@ -1,4 +1,4 @@
-# 🌐 MDaily-Git-Commit 🌐
+# 🌐 Daily-Git-Commit 🌐
 
 ## 📋 What is this repository about? 📋
 
