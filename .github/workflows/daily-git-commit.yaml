@@ -33,6 +33,7 @@ jobs:
         git add README.md
         git commit -m "🆕 New Emoji Added $RANDOM_EMOJI"
         git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        github_token: ${{ secrets.MY_GITHUB_TOKEN }}
+    
 
