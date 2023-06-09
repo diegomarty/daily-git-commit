@@ -4,7 +4,8 @@ on:
   schedule:
     # Runs every day at 16:25 UTC
     - cron: '26 16 * * *'
-
+  push:
+    branches: [ main ]
 
 jobs:
   update-readme:
