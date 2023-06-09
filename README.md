@@ -1,1 +1,2 @@
 # daily-git-commit
+test
