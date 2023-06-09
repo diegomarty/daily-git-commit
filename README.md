@@ -1,5 +1,7 @@
 # 🌐 Daily-Git-Commit 🌐
 
+[![🃏 Autocommit workflow](https://github.com/diegomarty/daily-git-commit/actions/workflows/daily-git-commit.yaml/badge.svg?event=check_run)](https://github.com/diegomarty/daily-git-commit/actions/workflows/daily-git-commit.yaml)
+
 ## 📋 What is this repository about? 📋
 
 This repository is automated with a **GitHub Action** that is programmed to perform a unique task:
