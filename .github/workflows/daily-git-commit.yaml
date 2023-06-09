@@ -1,0 +1,32 @@
+name: 🃏 Autocommit workflow
+
+on:
+  schedule:
+    # Runs every day at 18:00 UTC
+    - cron: '0 18 * * *'
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 🔍 Check out code
+      uses: actions/checkout@v2
+
+    - name: ⚡️ Update README
+      run: |
+        EMOJIS=(":smile:" ":laughing:" ":blush:" ":smiley:" ":relaxed:" ":smirk:" ":heart_eyes:" ":kissing_heart:" ":kissing_closed_eyes:" ":flushed:" ":relieved:" ":satisfied:" ":grin:" ":wink:" ":stuck_out_tongue_winking_eye:" ":stuck_out_tongue_closed_eyes:" ":grinning:" ":kissing:" ":kissing_smiling_eyes:" ":stuck_out_tongue:")
+        RANDOM_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]}
+        echo "Last updated: $(date) $RANDOM_EMOJI" >> README.md
+
+    - name: ✅ Commit and push
+      run: |
+        if [[ "$(date +%Y)" -gt "2024" ]]; then
+          echo "It's now past 2024, stopping updates."
+          exit 0
+        fi
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add README.md
+        git commit -m "Automated README update: add current date, time, and a random emoji $RANDOM_EMOJI"
+        git push
