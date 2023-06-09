@@ -17,7 +17,7 @@ jobs:
       run: |
         EMOJIS=(":smile:" ":laughing:" ":blush:" ":smiley:" ":relaxed:" ":smirk:" ":heart_eyes:" ":kissing_heart:" ":kissing_closed_eyes:" ":flushed:" ":relieved:" ":satisfied:" ":grin:" ":wink:" ":stuck_out_tongue_winking_eye:" ":stuck_out_tongue_closed_eyes:" ":grinning:" ":kissing:" ":kissing_smiling_eyes:" ":stuck_out_tongue:")
         RANDOM_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]}
-        echo "Last updated: $(date) $RANDOM_EMOJI" >> README.md
+        sed -i "/$RANDOM_EMOJI/{s/| [0-9]* |/ $((`grep -o '[0-9]*' <<< $(grep $RANDOM_EMOJI README.md)`+1)) |/}" README.md
 
     - name: ✅ Commit and push
       run: |
@@ -25,8 +25,8 @@ jobs:
           echo "It's now past 2024, stopping updates."
           exit 0
         fi
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "contacto@diegomarty.com"
+        git config --local user.name "DiegoMarty"
         git add README.md
-        git commit -m "Automated README update: add current date, time, and a random emoji $RANDOM_EMOJI"
+        git commit -m "🆕 New Emoji Added $RANDOM_EMOJI"
         git push
