@@ -3,7 +3,7 @@ name: 🃏 Autocommit workflow
 on:
   schedule:
     # Runs every day at 16:25 UTC
-    - cron: '26 16 * * *'
+    - cron: '0 18 * * *'
   push:
     branches: [ main ]
 
