@@ -2,7 +2,7 @@ name: 🃏 Autocommit workflow
 
 on:
   schedule:
-    # Runs every day at 16:25 UTC
+    # Runs every day at 18:00 UTC
     - cron: '0 18 * * *'
   push:
     branches: [ main ]
@@ -29,6 +29,10 @@ jobs:
         fi
         git config --local user.email "contacto@diegomarty.com"
         git config --local user.name "DiegoMarty"
+        git remote set-url origin https://$GITHUB_TOKEN@github.com/diegomarty/daily-git-commit.git
         git add README.md
         git commit -m "🆕 New Emoji Added $RANDOM_EMOJI"
         git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
